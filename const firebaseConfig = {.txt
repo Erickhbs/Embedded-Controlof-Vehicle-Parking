@@ -1,0 +1,33 @@
+  const firebaseConfig = {
+    apiKey: "AIzaSyCSsv-ZCRFAF4LvFjowihWr5ITkPEdz7YA",
+    authDomain: "parking-mqtt-flutter.firebaseapp.com",
+    databaseURL: "https://parking-mqtt-flutter-default-rtdb.firebaseio.com",
+    projectId: "parking-mqtt-flutter",
+    storageBucket: "parking-mqtt-flutter.firebasestorage.app",
+    messagingSenderId: "665770764256",
+    appId: "1:665770764256:web:4755b6fc8cc79aa2752d85"
+  };
+
+enum RoleCatraca { ENTRADA, SAIDA };
+
+struct Coordenada{ //para salvar no esp as coordenadas de cada vaga
+  double x;
+  double y;
+};
+
+struct Catraca {
+  String id;
+  Coordenada coordenada;
+  RoleCatraca role;
+  byte pinoServo;
+};
+
+struct Vaga{
+  String id; //para no futuro adicionar dinamicamnete mais vagas
+  bool ocupada;
+  bool reservada;
+  byte pino;
+  byte ledR;
+  byte ledW;
+  Coordenada coordenada;
+};

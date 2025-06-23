@@ -1,0 +1,42 @@
+name: app_flutter_parking
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  mqtt_client: ^10.3.0
+  flutter_map: ^8.1.1
+  latlong2: ^0.9.1
+  geolocator: ^14.0.1
+  flutter_screenutil: ^5.9.3
+  provider: ^6.1.5
+
+  #para utilizar um design mais minimalista - sou preguiçoso
+  flutter_neumorphic_plus: ^3.4.0
+  flutter_svg: ^2.1.0
+
+  mqtt_repository:
+    path: packages/mqtt_repository
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+

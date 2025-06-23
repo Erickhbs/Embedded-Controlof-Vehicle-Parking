@@ -1,0 +1,18 @@
+fontes tcc:
+https://repositorio.ufrn.br/server/api/core/bitstreams/14887e1c-1f02-4f9d-800d-40e740ab7849/content
+https://repositorio.ufrn.br/server/api/core/bitstreams/672327d2-c660-4f70-9601-530afb5e0bb5/content
+
+fontes bibliotecas:
+https://github.com/mobizt/FirebaseClient/blob/main/examples/RealtimeDatabase/Get/Get.ino
+https://github.com/mobizt/Firebase-ESP-Client?tab=readme-ov-file
+https://forum.arduino.cc/t/esp32-how-can-getlocaltime-work-without-network-connection/1142369
+https://arduinojson.org/v6/api/jsondocument/
+https://lottiefiles.com/pt/
+https://stackoverflow.com/questions/31367154/error-passing-volatile-stdqueueint-discards-qualifiers-fpermissive-c98
+https://stackoverflow.com/questions/1262376/is-there-a-limit-on-how-much-json-can-hold
+
+fontes tutoriais:
+https://www.youtube.com/watch?v=aO92B-K4TnQ&t=463s
+https://www.youtube.com/watch?v=-AIkuTSXaAk&t=426s
+
+
