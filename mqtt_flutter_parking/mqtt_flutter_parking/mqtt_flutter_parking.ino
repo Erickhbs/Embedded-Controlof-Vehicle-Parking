@@ -89,8 +89,9 @@ Vaga vagas[TOTAL_VAGAS] = {
 };
 
 // --- Variáveis de Controle de Estado ---
-int vagasDisponiveis = TOTAL_VAGAS;
+int vagasDisponiveis = TOTAL_VAGAS; 
 volatile bool estadoAlterado = true; 
+
 char comandoAbrirCatraca[TAMANHO_ID_CATRACA] = "";
 
 // --- Primitivas do FreeRTOS ---
@@ -175,12 +176,9 @@ void taskControleCatracas(void *pvParameters) {
   const int ANGULO_SERVO_ABERTO = 90;
   const int ANGULO_SERVO_FECHADO = 0;
   const int TEMPO_CATRACA_ABERTA_MS = 3000;
-
   while (true) {
     int indiceCatracaParaOperar = -1;
     char idCatracaLocal[TAMANHO_ID_CATRACA] = "";
-
-    // --- Seção Crítica RÁPIDA para copiar o comando ---
     if (xSemaphoreTake(sharedStateMutex, portMAX_DELAY) == pdTRUE) {
       if (comandoAbrirCatraca[0] != '\0') {a
         strlcpy(idCatracaLocal, comandoAbrirCatraca, sizeof(idCatracaLocal));
@@ -198,7 +196,6 @@ void taskControleCatracas(void *pvParameters) {
       }
       xSemaphoreGive(sharedStateMutex);
     }
-
     if (indiceCatracaParaOperar != -1) {
       Serial.printf("Acionando catraca: %s\n", catracas[indiceCatracaParaOperar].id);
       catracas[indiceCatracaParaOperar].servo.write(ANGULO_SERVO_ABERTO);
@@ -206,7 +203,6 @@ void taskControleCatracas(void *pvParameters) {
       catracas[indiceCatracaParaOperar].servo.write(ANGULO_SERVO_FECHADO);
       Serial.printf("Catraca %s fechada.\n", catracas[indiceCatracaParaOperar].id);
     }
-
     vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
@@ -331,7 +327,6 @@ void reconnect() {
  */
 void publicarEstado() {
   StaticJsonDocument<512> doc;
-
   if (xSemaphoreTake(sharedStateMutex, portMAX_DELAY) == pdTRUE) {
     doc["vagas_disponiveis"] = vagasDisponiveis;
     JsonArray vagasStatus = doc.createNestedArray("vagas");
@@ -343,12 +338,9 @@ void publicarEstado() {
     }
     xSemaphoreGive(sharedStateMutex);
   }
-
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer);
-
   client.publish("parking/status", jsonBuffer);
-
   if (Firebase.ready()) {
     FirebaseJson firebaseJson;
     firebaseJson.setJsonData(jsonBuffer);

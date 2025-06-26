@@ -11,7 +11,7 @@ class CatracaEntity {
     required this.y,
   });
 
-   Map<String, Object> toDocument(){
+  Map<String, Object> toDocument(){
     return {
       'id': id,
       'role': role,
