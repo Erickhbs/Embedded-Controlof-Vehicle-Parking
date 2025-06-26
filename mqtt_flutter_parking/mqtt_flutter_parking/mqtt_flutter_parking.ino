@@ -2,7 +2,7 @@
  * @author Erick Henrique Barros da Silva 
  * @brief Controlador Embarcado de Estacionamento de Veículos baseado em FreeRTOS e Flutter.
  * @date 2025-06-22 -- Otimização 
- * @Orientador Prof. Dr. josenalde barbosa de oliveira
+ * @Orientador Prof. Dr. Me. josenalde barbosa de oliveira
  */
 
 // =================================================================
@@ -22,18 +22,18 @@
 // DEFINIÇÕES E CONFIGURAÇÕES GLOBAIS
 // =================================================================
 // --- Credenciais de Rede ---
-#define WIFI_SSID "brisa-4256754"
-#define WIFI_PASSWORD "q1k8f9yi"
+#define WIFI_SSID "WIFI_SSID"
+#define WIFI_PASSWORD "WIFI_PASSWORD"
 
 // --- Credenciais do Firebase ---
-#define API_KEY "AIzaSyCSsv-ZCRFAF4LvFjowihWr5ITkPEdz7YA"
-#define USER_EMAIL "parking_esp32@iot.com"
-#define USER_PASSWORD "123456789"
-#define DATABASE_URL "https://parking-mqtt-flutter-default-rtdb.firebaseio.com"
+#define API_KEY "API_KEY"
+#define USER_EMAIL "USER_EMAIL"
+#define USER_PASSWORD "USER_PASSWORD"
+#define DATABASE_URL "DATABASE_URL"
 
 // --- Configurações do Broker MQTT ---
-const char* mqtt_server = "test.mosquitto.org";
-const int mqtt_port = 1883;
+const char* mqtt_server = "mqtt_server";
+const int mqtt_port = mqtt_port;
 
 // --- Constantes do Projeto ---
 const int TOTAL_VAGAS = 4;
