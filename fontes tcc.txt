@@ -1,18 +1,48 @@
 fontes tcc:
 https://repositorio.ufrn.br/server/api/core/bitstreams/14887e1c-1f02-4f9d-800d-40e740ab7849/content
 https://repositorio.ufrn.br/server/api/core/bitstreams/672327d2-c660-4f70-9601-530afb5e0bb5/content
+https://repositorio.ufrn.br/server/api/core/bitstreams/43413d6f-c85e-405c-a821-7fb146ffbcc4/content
+https://repositorio.ufrn.br/server/api/core/bitstreams/672327d2-c660-4f70-9601-530afb5e0bb5/content
+https://repositorio.ufrn.br/server/api/core/bitstreams/88f6f7a3-9a86-4a05-96d3-47a387be76b0/content
+https://repositorio.ufrn.br/server/api/core/bitstreams/b9c0f651-338c-429e-9a79-5e74cf339175/content
 
-fontes bibliotecas:
+
+fontes bibliotecas usadas para aprender ou revisar:
 https://github.com/mobizt/FirebaseClient/blob/main/examples/RealtimeDatabase/Get/Get.ino
 https://github.com/mobizt/Firebase-ESP-Client?tab=readme-ov-file
 https://forum.arduino.cc/t/esp32-how-can-getlocaltime-work-without-network-connection/1142369
+https://arduinojson.org/?utm_source=meta&utm_medium=library.properties
 https://arduinojson.org/v6/api/jsondocument/
 https://lottiefiles.com/pt/
 https://stackoverflow.com/questions/31367154/error-passing-volatile-stdqueueint-discards-qualifiers-fpermissive-c98
 https://stackoverflow.com/questions/1262376/is-there-a-limit-on-how-much-json-can-hold
+https://madhephaestus.github.io/ESP32Servo/classESP32PWM.html
+https://github.com/mobizt/Firebase-ESP-Client
+https://github.com/mobizt/Firebase-ESP32
+https://github.com/mobizt/FirebaseClient
+http://pubsubclient.knolleary.net/api
+https://github.com/terrorsl/sMQTTBroker
+
 
 fontes tutoriais:
 https://www.youtube.com/watch?v=aO92B-K4TnQ&t=463s
 https://www.youtube.com/watch?v=-AIkuTSXaAk&t=426s
+	
+fontes onde encontri os itens para venda:
+sensor optico reflexivo tcrt5000
+Micro Servo 9g SG90
+Kit 10 X Resistor 180 Ohm 5% 1/4w 0,25w 180r Arduino Pic
+20x Cabo Jumper Fêmea x Fêmea 10 cm
+40x Cabo Jumper Macho x Fêmea 20 cm
+20x Cabo Jumper Macho x Macho 10 cm
+Led Difuso 5mm Vermelho
+LED DIFUSO RGB - 4 TERMINAIS - CATODO COMUM - 5mm
+carregador 9V
+ESP32
+
+appendice:
+
+https://github.com/Erickhbs/Embedded-Controlof-Vehicle-Parking
+
 
 

@@ -1,8 +1,8 @@
 /**
  * @author Erick Henrique Barros da Silva 
  * @brief Controlador Embarcado de Estacionamento de Veículos baseado em FreeRTOS e Flutter.
- * @date 2025-06-22 -- Otimização 
- * @Orientador Prof. Dr. Me. josenalde barbosa de oliveira
+ * @date 2025-06-27 -- 
+ * @Orientador Prof. Dr. josenalde barbosa de oliveira
  */
 
 // =================================================================
@@ -270,20 +270,20 @@ void callback(char* topic, byte* payload, unsigned int length) {
  * @brief Configura e conecta à rede Wi-Fi.
  */
 void setup_wifi() {
-  Serial.print("Conectando ao WiFi...");
+  //Serial.print("Conectando ao WiFi...");
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+    //Serial.print(".");
   }
-  Serial.println("\nWiFi conectado: " + WiFi.localIP().toString());
+  //Serial.println("\nWiFi conectado: " + WiFi.localIP().toString());
 }
 
 /**
  * @brief Configura e inicializa a conexão com o Firebase.
  */
 void setup_firebase() {
-  Serial.print("Inicializando Firebase...");
+  //Serial.print("Inicializando Firebase...");
   config.api_key = API_KEY;
   config.database_url = DATABASE_URL;
   auth.user.email = USER_EMAIL;
@@ -295,14 +295,14 @@ void setup_firebase() {
   unsigned long start = millis();
   while (!Firebase.ready()) {
     if(millis() - start > 15000) { 
-        Serial.println("\nFalha ao conectar com Firebase.");
+        //Serial.println("\nFalha ao conectar com Firebase.");
         return;
     }
     delay(500);
-    Serial.print(".");
+    //Serial.print(".");
   }
-  Serial.println("\nFirebase pronto!");
-  Serial.println(Firebase.ready() ? "FBD conectado! ":"FBD com erro");
+  //Serial.println("\nFirebase pronto!");
+  //Serial.println(Firebase.ready() ? "FBD conectado! ":"FBD com erro");
 }
 
 /**
@@ -310,13 +310,13 @@ void setup_firebase() {
  */
 void reconnect() {
   while (!client.connected()) {
-    Serial.print("Tentando conectar ao MQTT...");
+    //Serial.print("Tentando conectar ao MQTT...");
     if (client.connect("ESP32_ParkingClient_Otimizado")) {
-      Serial.println(" conectado!");
+      //Serial.println(" conectado!");
       client.subscribe("parking/commands");
       estadoAlterado = true; // Força uma publicação de estado ao reconectar
     } else {
-      Serial.printf(" falhou, rc=%d. Tentando novamente em 5 segundos\n", client.state());
+      //Serial.printf(" falhou, rc=%d. Tentando novamente em 5 segundos\n", client.state());
       vTaskDelay(5000 / portTICK_PERIOD_MS);
     }
   }
@@ -346,15 +346,15 @@ void publicarEstado() {
     firebaseJson.setJsonData(jsonBuffer);
     Firebase.RTDB.setJSON(&fbdo, "/parking_status", &firebaseJson);
   }
-  Serial.print("Estado publicado: ");
-  Serial.println(jsonBuffer);
+  //Serial.println(jsonBuffer);
+  //Serial.print("Estado publicado: ");
 }
 
 /**
  * @brief Restaura o último estado salvo no Firebase ao iniciar.
  */
 void restaurarEstadoDoFirebase() {
-  Serial.println("Restaurando estado do Firebase...");
+  //Serial.println("Restaurando estado do Firebase...");
   if (Firebase.ready() && Firebase.RTDB.getJSON(&fbdo, "/parking_status")) {
     if (fbdo.dataTypeEnum() == fb_esp_rtdb_data_type_json) {
         StaticJsonDocument<512> doc;
@@ -367,11 +367,11 @@ void restaurarEstadoDoFirebase() {
             }
             atualizarEstadoCompleto();
             xSemaphoreGive(sharedStateMutex);
-            Serial.println("Estado restaurado com sucesso!");
+            //Serial.println("Estado restaurado com sucesso!");
         }
     }
   } else {
-    Serial.println("Nenhum backup encontrado ou Firebase indisponível.");
+    //Serial.println("Nenhum backup encontrado ou Firebase indisponível.");
   }
 }
 
@@ -406,7 +406,7 @@ void setup() {
   xTaskCreatePinnedToCore(taskControleCatracas, "CtrlCatracas", 3072, NULL, 2, NULL, 0);
   xTaskCreatePinnedToCore(taskMQTT, "TaskMQTT", 8192, NULL, 1, NULL, 1);
 
-  Serial.println("Setup concluído. Sistema em operação ;).");
+  //Serial.println("Setup concluído. Sistema em operação ;).");
 }
 
 void loop() {
