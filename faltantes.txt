@@ -1,8 +1,0 @@
-faltantes:
--objetivos
--reqquisitos
--diagramas -> fluxograma
-
-
--estrutura de dados
--ler os pré requisitos
