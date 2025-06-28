@@ -1,15 +1,3 @@
-1. **Título e Descrição Geral**
-2. **Funcionalidades**
-3. **Hardware Necessário**
-4. **Configuração do Ambiente**
-5. **Estrutura do Código**
-6. **Fluxo de Funcionamento**
-7. **Comunicação (MQTT e Firebase)**
-8. **Tarefas (FreeRTOS)**
-9. **Como Usar**
-10. **Contribuição**
-11. **Licença**
-Vamos ao texto:
 ---
 # Controlador Embarcado de Estacionamento Inteligente
 Este repositório contém o firmware para um sistema de controle de estacionamento de veículos, desenvolvido para rodar em um ESP32 usando o FreeRTOS. O sistema gerencia vagas de estacionamento e catracas de entrada/saída, comunicando-se com um aplicativo Flutter via MQTT e sincronizando o estado com o Firebase.
